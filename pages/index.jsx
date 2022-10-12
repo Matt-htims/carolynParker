@@ -1,7 +1,12 @@
-import Head from "next/head";
-import Image from "next/image";
+import Head from 'next/head';
+import Image from 'next/image';
+
+// Global state
+import { useGlobalStore } from '../zustand-state/globalState';
 
 export default function Home() {
+	const updateNavbar = useGlobalStore((state) => state.updateNavbar);
+	const updateFooter = useGlobalStore((state) => state.updateFooter);
 	return (
 		<div>
 			<Head>

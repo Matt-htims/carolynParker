@@ -2,7 +2,12 @@ import { useState, useEffect } from 'react';
 import Router from 'next/router';
 import Link from 'next/link';
 
+// State
+import { useGlobalStore } from '../../zustand-state/globalState';
+
 export default function Navbar() {
+	const navbarData = useGlobalStore((state) => state.navbar);
+
 	const [open, setOpen] = useState(false);
 
 	const items = [
@@ -27,7 +32,7 @@ export default function Navbar() {
 	});
 
 	return (
-		<div className="sticky top-0 w-full">
+		<header className="sticky top-0 w-full">
 			<nav className="z-50 relative">
 				<div>
 					<Link href="/" passHref={true}>
@@ -58,6 +63,6 @@ export default function Navbar() {
 					''
 				)}
 			</div>
-		</div>
+		</header>
 	);
 }
