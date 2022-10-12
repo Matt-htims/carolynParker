@@ -1,9 +1,10 @@
-import React from "react";
+import React from 'react';
 
 export default function Projects() {
 	return (
 		<div>
-			<h1>Projects</h1>
+			<h1 className="h-screen">Projects</h1>
+			<p className="h-screen">hello</p>
 		</div>
 	);
 }
