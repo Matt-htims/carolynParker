@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import Router from 'next/router';
+import Image from 'next/image';
 import Link from 'next/link';
 
 // State
@@ -7,16 +7,11 @@ import { useGlobalStore } from '../../zustand-state/globalState';
 
 export default function Navbar() {
 	const navbarData = useGlobalStore((state) => state.navbar);
+	console.log(navbarData);
+	const brand = navbarData.brand.data.attributes;
 
 	const [open, setOpen] = useState(false);
 
-	const items = [
-		{ url: '/', title: 'Home', id: 'jse0fj' },
-		{ url: '/what-we-do', title: 'What we do', id: '12fj32lofkj' },
-		{ url: '/projects', title: 'Projects', id: 'lskafj938' },
-		{ url: '/about', title: 'About', id: 'j23f028jf' },
-		{ url: '/contact', title: 'Contact', id: 'lskdfj093' },
-	];
 	function handleTray() {
 		setOpen(!open);
 	}
@@ -35,9 +30,17 @@ export default function Navbar() {
 	return (
 		<header className="sticky top-0 w-full">
 			<nav className="z-50 relative">
-				<div>
+				<div className="flex justify-between items-center py-5 px-11">
+					<div></div>
 					<Link href="/" passHref={true}>
-						<a>brand</a>
+						<a onClick={closeTray}>
+							<Image
+								src={brand.url}
+								height={66}
+								width={53}
+								alt={brand.alternativeText}
+							/>
+						</a>
 					</Link>
 					<div onClick={handleTray} className="cursor-pointer text-white">
 						Hammy
@@ -52,7 +55,7 @@ export default function Navbar() {
 			>
 				{open ? (
 					<div className="flex flex-col justify-center items-center">
-						{items.map((item) => (
+						{navbarData.navLinks.map((item) => (
 							<Link href={item.url} key={item.id}>
 								<a onClick={handleTray} className="text-white">
 									{item.title}
