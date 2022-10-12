@@ -18,7 +18,17 @@ export const useGlobalStore = create(
 			navLinks: [],
 		},
 		footer: {
-			icon: '',
+			icon: {
+				data: {
+					attributes: {
+						alternativeText: '',
+						height: '',
+						placeholder: '',
+						url: '',
+						width: '',
+					},
+				},
+			},
 			addressLine1: '',
 			addressLine2: '',
 			number: '',
