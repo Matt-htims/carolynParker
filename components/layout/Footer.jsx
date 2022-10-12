@@ -7,7 +7,7 @@ export default function Footer() {
 	const footerData = useGlobalStore((state) => state.footer);
 	return (
 		<footer>
-			<div></div>
+			<div>{footerData.addressLine1}</div>
 		</footer>
 	);
 }

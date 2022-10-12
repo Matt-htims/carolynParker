@@ -1,12 +1,15 @@
+import { useEffect } from 'react';
 import Head from 'next/head';
-import Image from 'next/image';
+import { request } from '../lib/apollo';
 
-// Global state
-import { useGlobalStore } from '../zustand-state/globalState';
+// Queries
+import { GLOBAL_QUERY } from '../lib/queries';
 
-export default function Home() {
-	const updateNavbar = useGlobalStore((state) => state.updateNavbar);
-	const updateFooter = useGlobalStore((state) => state.updateFooter);
+// Global data
+import { useGlobalUpdater } from '../helperFunctions/updateGlobalState';
+
+export default function Home({ globalData }) {
+	useGlobalUpdater(globalData);
 	return (
 		<div>
 			<Head>
@@ -18,4 +21,16 @@ export default function Home() {
 			<h1 className="text-6xl font-black">Home</h1>
 		</div>
 	);
+}
+
+export async function getStaticProps() {
+	const res = await request({
+		query: GLOBAL_QUERY,
+	});
+
+	const globalData = res.globalInfo.data.attributes;
+
+	return {
+		props: { globalData },
+	};
 }

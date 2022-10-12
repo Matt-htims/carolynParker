@@ -11,6 +11,7 @@ export default function Navbar() {
 	const [open, setOpen] = useState(false);
 
 	const items = [
+		{ url: '/', title: 'Home', id: 'jse0fj' },
 		{ url: '/what-we-do', title: 'What we do', id: '12fj32lofkj' },
 		{ url: '/projects', title: 'Projects', id: 'lskafj938' },
 		{ url: '/about', title: 'About', id: 'j23f028jf' },
@@ -50,7 +51,7 @@ export default function Navbar() {
 				}`}
 			>
 				{open ? (
-					<div>
+					<div className="flex flex-col justify-center items-center">
 						{items.map((item) => (
 							<Link href={item.url} key={item.id}>
 								<a onClick={handleTray} className="text-white">

@@ -3,7 +3,7 @@ import { devtools } from 'zustand/middleware';
 
 export const useGlobalStore = create(
 	devtools((set) => ({
-		navbar: { brand: '', navLinks: [] },
+		navbar: { brand: {}, navLinks: [] },
 		footer: {
 			icon: '',
 			addressLine1: '',
