@@ -4,7 +4,7 @@ import { request } from '../../lib/apollo';
 import { GLOBAL_QUERY } from '../../lib/queries';
 
 // Global data
-import { useGlobalUpdater } from '../../helperFunctions/updateGlobalState';
+import { useGlobalUpdater } from '../../customHooks/updateGlobalState';
 
 export default function Team({ globalData }) {
 	useGlobalUpdater(globalData);

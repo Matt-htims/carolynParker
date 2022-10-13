@@ -28,11 +28,10 @@ export default function Navbar() {
 	});
 
 	return (
-		<header className="sticky top-0 w-full">
+		<header className="sticky top-0 w-full z-50">
 			<nav className="z-50 relative">
-				<div className="flex justify-between items-center py-5 px-11">
-					<div></div>
-					<Link href="/" passHref={true}>
+				<div className="flex justify-center items-center py-5">
+					<Link href="/" passHref={true} className="">
 						<a onClick={closeTray}>
 							<Image
 								src={brand.url}
@@ -42,7 +41,10 @@ export default function Navbar() {
 							/>
 						</a>
 					</Link>
-					<div onClick={handleTray} className="cursor-pointer text-white">
+					<div
+						onClick={handleTray}
+						className="cursor-pointer text-white absolute right-0 pr-11"
+					>
 						Hammy
 					</div>
 				</div>

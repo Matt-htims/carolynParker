@@ -6,7 +6,6 @@ import { useGlobalStore } from '../../zustand-state/globalState';
 
 export default function Footer() {
 	const footerData = useGlobalStore((state) => state.footer);
-	console.log(footerData);
 	return (
 		<footer>
 			<div className="leftSection">
