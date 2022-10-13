@@ -43,23 +43,35 @@ export default function Navbar() {
 					</Link>
 					<div
 						onClick={handleTray}
-						className="cursor-pointer text-white absolute right-0 pr-11"
+						className="cursor-pointer text-white absolute right-0 mr-11"
 					>
-						Hammy
+						<div
+							className={`w-9 h-0.5 bg-black mb-3 origin-top-left transition duration-300 ${
+								open ? 'mb-[22px] rotate-45' : ''
+							}`}
+						></div>
+						<div
+							className={`w-9 h-0.5 bg-black origin-bottom-left transition duration-300 ${
+								open ? '-rotate-45' : ''
+							}`}
+						></div>
 					</div>
 				</div>
 			</nav>
 			<div
 				onClick={handleTray}
-				className={`w-screen h-screen bg-black flex justify-center absolute top-0 z-40 overflow-hidden ${
+				className={`w-screen h-screen bg-red-500 flex justify-center absolute top-0 z-40 overflow-hidden ${
 					!open ? 'hidden' : ''
 				}`}
 			>
 				{open ? (
-					<div className="flex flex-col justify-center items-center">
+					<div className="flex flex-col justify-center items-center space-y-7">
 						{navbarData.navLinks.map((item) => (
 							<Link href={item.url} key={item.id}>
-								<a onClick={handleTray} className="text-white">
+								<a
+									onClick={handleTray}
+									className="text-white text-5xl transition hover:text-black font-main"
+								>
 									{item.title}
 								</a>
 							</Link>

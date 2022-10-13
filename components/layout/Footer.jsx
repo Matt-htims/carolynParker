@@ -7,16 +7,17 @@ import { useGlobalStore } from '../../zustand-state/globalState';
 export default function Footer() {
 	const footerData = useGlobalStore((state) => state.footer);
 	return (
-		<footer>
-			<div className="leftSection">
+		<footer className="flex justify-between items-center px-24 py-36 max-w-screen-2xl m-auto">
+			<div className="leftSection flex space-x-24">
 				<Image
 					src={footerData.icon.data.attributes.url}
 					width={53}
 					height={66}
 					alt={footerData.icon.data.attributes.alternativeText}
+					className=""
 				/>
 				<div className="address">
-					<p>{footerData.addressLine1}</p>
+					<p className="flex-none">{footerData.addressLine1}</p>
 					<p>{footerData.addressLine2}</p>
 				</div>
 				<div className="contact">
