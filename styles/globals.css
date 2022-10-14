@@ -23,19 +23,22 @@ body {
 	color: var(--main);
 }
 
-h1 {
+h1,
+.as-h1 {
 	font-family: var(--accentFont);
 	font-size: 72px;
 	line-height: 57px;
 }
 
-h2 {
+h2,
+.as-h2 {
 	font-family: var(--accentFont);
 	font-size: 50px;
 	line-height: 42px;
 }
 
-h3 {
+h3,
+.as-h3 {
 	font-family: var(--accentFont);
 	font-size: 38px;
 	line-height: 32px;
