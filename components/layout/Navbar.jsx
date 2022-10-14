@@ -60,7 +60,7 @@ export default function Navbar() {
 			</nav>
 			<div
 				onClick={handleTray}
-				className={`w-screen h-screen bg-red-500 flex justify-center absolute top-0 z-40 overflow-hidden ${
+				className={`w-screen h-screen bg-main flex justify-center absolute top-0 z-40 overflow-hidden ${
 					!open ? 'hidden' : ''
 				}`}
 			>

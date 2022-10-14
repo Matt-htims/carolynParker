@@ -18,7 +18,7 @@ export default function Home({ globalData }) {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 
-			<h1 className="text-6xl font-black">Home</h1>
+			<h1 className="">Home</h1>
 		</div>
 	);
 }

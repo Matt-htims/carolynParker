@@ -9,17 +9,18 @@
 	--mainFont: 'Inter', sans-serif;
 
 	/* Colours */
-	--black: '#000000';
-	--white: '#ffffff';
-	--main: '#3A4048';
-	--secondary: '#A0ABBC';
-	--tertiary: '#BFB6AD';
-	--cta: '#CAA1A5';
+	--black: #000000;
+	--white: #ffffff;
+	--main: #3a4048;
+	--secondary: #a0abbc;
+	--tertiary: #bfb6ad;
+	--cta: #caa1a5;
 }
 
 html,
 body {
 	font-family: var(--mainFont);
+	color: var(--main);
 }
 
 h1 {
