@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 // Layout options
 // - intrinsic		(Scale down to fit width of conteint, up to image size)
 // - fixed			(Sized to 'width' and 'height' exactly)
@@ -12,6 +10,8 @@ import Image from 'next/image';
 // - cover
 // - none
 // - scale-down
+
+import Image from 'next/image';
 
 export default function CustomImage({
 	content,

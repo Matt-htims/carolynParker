@@ -19,13 +19,13 @@ export default function Navbar() {
 		setOpen(false);
 	}
 
-	useEffect(() => {
-		if (open) {
-			document.body.style.overflow = 'hidden';
-		} else {
-			document.body.style.overflow = 'unset';
-		}
-	});
+	// useEffect(() => {
+	// 	if (open) {
+	// 		document.body.style.overflow = 'hidden';
+	// 	} else {
+	// 		document.body.style.overflow = 'unset';
+	// 	}
+	// });
 
 	return (
 		<header className="sticky top-0 w-full z-50">

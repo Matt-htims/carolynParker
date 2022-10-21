@@ -1,7 +1,6 @@
 import React from 'react';
 
 export default function Testimonial({ content }) {
-	console.log(content);
 	return (
 		<div className="max-w-screen-2xl m-auto px-11 relative">
 			<div className="quotemarks w-[80px] h-[60px] bg-cta absolute -left-14 -top-8"></div>
