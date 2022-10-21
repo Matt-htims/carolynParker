@@ -29,7 +29,7 @@ export default function Navbar() {
 
 	return (
 		<header className="sticky top-0 w-full z-50">
-			<nav className="z-50 relative">
+			<nav className="z-50 absolute w-full">
 				<div className="flex justify-center items-center py-5">
 					<Link href="/" passHref={true} className="">
 						<a onClick={closeTray}>

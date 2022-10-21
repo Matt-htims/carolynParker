@@ -30,6 +30,19 @@ export default function CustomImage({
 		image = content.data.attributes;
 	}
 
+	if (layout == 'fill') {
+		return (
+			<Image
+				placeholder={placeholder && image.placeholder ? 'blur' : 'empty'}
+				blurDataURL={image.placeholder}
+				src={image.url}
+				alt={image.alternativeText}
+				layout={layout ? layout : 'intrinsic'}
+				objectFit={layout == 'fill' ? objectFit : ''}
+				priority={priority ? true : false}
+			/>
+		);
+	}
 	return (
 		<Image
 			placeholder={placeholder && image.placeholder ? 'blur' : 'empty'}
