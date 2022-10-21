@@ -1,6 +1,9 @@
 import Head from 'next/head';
 
 export default function CustomHead({ seo }) {
+	if (!seo) {
+		return '';
+	}
 	return (
 		<Head>
 			{seo.metaTitle ? (

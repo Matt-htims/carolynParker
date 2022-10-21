@@ -50,6 +50,6 @@ p {
 	line-height: 26px;
 }
 
-.custom-width {
-	width: 83.333333%;
+.sideways-text {
+	writing-mode: vertical-lr;
 }

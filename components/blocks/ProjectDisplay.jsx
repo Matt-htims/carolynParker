@@ -1,15 +1,39 @@
-import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
+import CustomImage from '../CustomImage';
 
 export default function ProjectDisplay({ content }) {
-	console.log(content);
-	if (content.displayType == 'fullscreenImage') {
+	if (
+		content.displayType == 'fullscreenImageTextLeft' ||
+		'fullscreenImageTextRight'
+	) {
 		return (
-			<div>
-				<Image alt="" />
+			<div className="h-[1000px] relative">
+				<CustomImage
+					content={content.project.data.attributes.gallery.data[0]}
+					fromGallery={true}
+					layout="fill"
+					objectFit="cover"
+				/>
+				<div
+					className={`absolute transform rotate-180 w-16 h-full bg-secondary/60 sideways-text flex items-center ${
+						content.displayType == 'fullscreenImageTextRight' ? 'right-0' : ''
+					}`}
+				>
+					<div className="flex items-start text-white pt-6 space-y-4">
+						<h3>{content.project.data.attributes.location}</h3>
+						<p>{content.project.data.attributes.displayTitle}</p>
+					</div>
+				</div>
+				<div
+					className={`absolute w-4 h-full bg-main/20 ${
+						content.displayType == 'fullscreenImageTextRight'
+							? 'right-16'
+							: 'left-16'
+					}`}
+				></div>
 			</div>
 		);
-	} else if (content.displayType == 'textFirst || imageFirst') {
+	} else if (content.displayType == 'textFirst' || 'imageFirst') {
 		return (
 			<div>
 				<p>hello</p>

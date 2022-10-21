@@ -49,7 +49,7 @@ export async function getStaticProps() {
 		query: GLOBAL_QUERY,
 	});
 
-	const resHome = await request({
+	const resPage = await request({
 		query: HOME_QUERY,
 		variables: {
 			pagination: {
@@ -60,7 +60,7 @@ export async function getStaticProps() {
 	});
 
 	const globalData = resGlobal.globalInfo.data.attributes;
-	const pageData = resHome.pageHome.data.attributes;
+	const pageData = resPage.pageHome.data.attributes;
 
 	return {
 		props: { globalData, pageData },

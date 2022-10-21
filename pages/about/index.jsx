@@ -1,16 +1,45 @@
 import { request } from '../../lib/apollo';
 
 // Queries
-import { GLOBAL_QUERY } from '../../lib/queries';
+import { GLOBAL_QUERY, ABOUT_QUERY } from '../../lib/queries';
 
 // Global data
 import { useGlobalUpdater } from '../../customHooks/updateGlobalState';
 
-export default function About({ globalData }) {
+// Components
+import Banner from '../../components/blocks/Banner';
+import Padding from '../../components/blocks/Padding';
+import PageIntro from '../../components/blocks/PageIntro';
+import ProjectDisplay from '../../components/blocks/ProjectDisplay';
+import Testimonial from '../../components/blocks/Testimonial';
+
+import CustomHead from '../../components/CustomHead';
+
+export default function About({ globalData, pageData }) {
+	console.log(pageData);
 	useGlobalUpdater(globalData);
+
+	const componentMapping = {
+		Banner,
+		Padding,
+		PageIntro,
+		ProjectDisplay,
+		Testimonial,
+	};
+
+	const dynamicComponents = pageData.blocks.map((block) => {
+		return block.__typename.replace('ComponentBlock', '');
+	});
+
 	return (
 		<div>
-			<h1>About</h1>
+			<CustomHead seo={pageData.seo} />
+			<main>
+				{dynamicComponents.map((componentName, n) => {
+					const Component = componentMapping[componentName];
+					return <Component key={n} content={pageData.blocks[n]} />;
+				})}
+			</main>
 		</div>
 	);
 }
@@ -20,9 +49,20 @@ export async function getStaticProps() {
 		query: GLOBAL_QUERY,
 	});
 
+	const resPage = await request({
+		query: ABOUT_QUERY,
+		variables: {
+			pagination: {
+				pageSize: 1,
+				page: 1,
+			},
+		},
+	});
+
 	const globalData = res.globalInfo.data.attributes;
+	const pageData = resPage.pageAbout.data.attributes;
 
 	return {
-		props: { globalData },
+		props: { globalData, pageData },
 	};
 }

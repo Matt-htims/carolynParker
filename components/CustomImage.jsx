@@ -15,22 +15,32 @@ import Image from 'next/image';
 
 export default function CustomImage({
 	content,
+	fromGallery = false,
 	placeholder = true,
 	width,
 	height,
 	layout,
 	objectFit,
+	priority,
 }) {
+	let image = {};
+	if (fromGallery) {
+		image = content.attributes;
+	} else {
+		image = content.data.attributes;
+	}
+
 	return (
 		<Image
-			placeholder={placeholder ? 'blur' : 'empty'}
-			blurDataURL={content.data.attributes.placeholder}
-			src={content.data.attributes.url}
-			alt={content.data.attributes.alternativeText}
-			width={width ? width : content.data.attributes.width}
-			height={height ? height : content.data.attributes.height}
+			placeholder={placeholder && image.placeholder ? 'blur' : 'empty'}
+			blurDataURL={image.placeholder}
+			src={image.url}
+			alt={image.alternativeText}
+			width={width ? width : image.width}
+			height={height ? height : image.height}
 			layout={layout ? layout : 'intrinsic'}
 			objectFit={layout == 'fill' ? objectFit : ''}
+			priority={priority ? true : false}
 		/>
 	);
 }
