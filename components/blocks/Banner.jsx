@@ -1,6 +1,5 @@
 export default function Banner({ content }) {
 	const colour = content.backgroundColour;
-	console.log(content);
 	return (
 		<div
 			className={`${
@@ -14,7 +13,7 @@ export default function Banner({ content }) {
 			}`}
 		>
 			<div className="max-w-screen-2xl m-auto px-11 py-20">
-				<p className="text-2xl w-8/12 text-white">{content.text}</p>
+				<p className="text-2xl w-custom text-white">{content.text}</p>
 			</div>
 		</div>
 	);

@@ -19,6 +19,9 @@ module.exports = {
 	],
 	theme: {
 		extend: {
+			width: {
+				custom: '83.333333%',
+			},
 			screens: {
 				'2xl': '1620px',
 			},
