@@ -1,7 +1,7 @@
 import { request } from '../lib/apollo';
 
 // Queries
-import { GLOBAL_QUERY } from '../lib/queries';
+import { GLOBAL_QUERY } from '../lib/queries/globalQueries';
 
 // Global data
 import { useGlobalUpdater } from '../customHooks/updateGlobalState';

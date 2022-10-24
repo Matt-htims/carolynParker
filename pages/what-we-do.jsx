@@ -1,7 +1,8 @@
 import { request } from '../lib/apollo';
 
 // Queries
-import { GLOBAL_QUERY, WHAT_QUERY } from '../lib/queries';
+import { GLOBAL_QUERY } from '../lib/queries/globalQueries';
+import { WHAT_PAGE_QUERY } from '../lib/queries/pageQueries';
 
 // Global data
 import { useGlobalUpdater } from '../customHooks/updateGlobalState';
@@ -49,7 +50,7 @@ export async function getStaticProps() {
 	});
 
 	const resPage = await request({
-		query: WHAT_QUERY,
+		query: WHAT_PAGE_QUERY,
 		variables: {
 			pagination: {
 				pageSize: 1,

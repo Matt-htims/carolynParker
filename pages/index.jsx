@@ -2,7 +2,8 @@ import Head from 'next/head';
 import { request } from '../lib/apollo';
 
 // Queries
-import { GLOBAL_QUERY, HOME_QUERY } from '../lib/queries';
+import { GLOBAL_QUERY } from '../lib/queries/globalQueries';
+import { HOME_PAGE_QUERY } from '../lib/queries/pageQueries';
 
 // Global data
 import { useGlobalUpdater } from '../customHooks/updateGlobalState';
@@ -50,7 +51,7 @@ export async function getStaticProps() {
 	});
 
 	const resPage = await request({
-		query: HOME_QUERY,
+		query: HOME_PAGE_QUERY,
 		variables: {
 			pagination: {
 				pageSize: 1,
