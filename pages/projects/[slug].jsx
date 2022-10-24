@@ -1,10 +1,9 @@
 import ReactMarkdown from 'react-markdown';
-
 import { request } from '../../lib/apollo';
 
 // Queries
 import { GLOBAL_QUERY } from '../../lib/queries/globalQueries';
-import { PROJECTS_PATH_QUERY } from '../../lib/queries/pathQueries';
+import { PROJECT_PATHS_QUERY } from '../../lib/queries/pathQueries';
 import { PROJECT_SINGLE_QUERY } from '../../lib/queries/singleQueries';
 
 // Global data
@@ -12,7 +11,6 @@ import { useGlobalUpdater } from '../../customHooks/updateGlobalState';
 
 export default function Project({ globalData, singleData }) {
 	useGlobalUpdater(globalData);
-	console.log(singleData);
 	return (
 		<div>
 			<h1>{singleData.displayTitle}</h1>
@@ -23,7 +21,7 @@ export default function Project({ globalData, singleData }) {
 }
 
 export async function getStaticPaths() {
-	const pathsRes = await request({ query: PROJECTS_PATH_QUERY });
+	const pathsRes = await request({ query: PROJECT_PATHS_QUERY });
 
 	const paths = pathsRes.projects.data.map((project) => ({
 		params: { slug: project.attributes.slug },
