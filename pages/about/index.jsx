@@ -4,9 +4,6 @@ import { request } from '../../lib/apollo';
 import { GLOBAL_QUERY } from '../../lib/queries/globalQueries';
 import { ABOUT_PAGE_QUERY } from '../../lib/queries/pageQueries';
 
-// Global data
-import { useGlobalUpdater } from '../../customHooks/updateGlobalState';
-
 // Components
 import Banner from '../../components/blocks/Banner';
 import Padding from '../../components/blocks/Padding';
@@ -17,8 +14,6 @@ import Testimonial from '../../components/blocks/Testimonial';
 import CustomHead from '../../components/CustomHead';
 
 export default function About({ globalData, pageData }) {
-	useGlobalUpdater(globalData);
-
 	const componentMapping = {
 		Banner,
 		Padding,

@@ -3,11 +3,7 @@ import { request } from '../lib/apollo';
 // Queries
 import { GLOBAL_QUERY } from '../lib/queries/globalQueries';
 
-// Global data
-import { useGlobalUpdater } from '../customHooks/updateGlobalState';
-
 export default function Contact({ globalData }) {
-	useGlobalUpdater(globalData);
 	return (
 		<div>
 			<h1>Contact</h1>

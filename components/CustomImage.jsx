@@ -40,6 +40,7 @@ export default function CustomImage({
 				layout={layout ? layout : 'intrinsic'}
 				objectFit={layout == 'fill' ? objectFit : ''}
 				priority={priority ? true : false}
+				quality={100}
 			/>
 		);
 	}
@@ -54,6 +55,7 @@ export default function CustomImage({
 			layout={layout ? layout : 'intrinsic'}
 			objectFit={layout == 'fill' ? objectFit : ''}
 			priority={priority ? true : false}
+			quality={100}
 		/>
 	);
 }

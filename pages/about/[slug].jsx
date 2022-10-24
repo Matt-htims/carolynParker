@@ -9,11 +9,7 @@ import { GLOBAL_QUERY } from '../../lib/queries/globalQueries';
 import { TEAM_PATHS_QUERY } from '../../lib/queries/pathQueries';
 import { TEAM_SINGLE_QUERY } from '../../lib/queries/singleQueries';
 
-// Global data
-import { useGlobalUpdater } from '../../customHooks/updateGlobalState';
-
 export default function Team({ globalData, singleData }) {
-	useGlobalUpdater(globalData);
 	return (
 		<div>
 			<CustomImage content={singleData.image} />

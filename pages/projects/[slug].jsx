@@ -6,11 +6,7 @@ import { GLOBAL_QUERY } from '../../lib/queries/globalQueries';
 import { PROJECT_PATHS_QUERY } from '../../lib/queries/pathQueries';
 import { PROJECT_SINGLE_QUERY } from '../../lib/queries/singleQueries';
 
-// Global data
-import { useGlobalUpdater } from '../../customHooks/updateGlobalState';
-
 export default function Project({ globalData, singleData }) {
-	useGlobalUpdater(globalData);
 	return (
 		<div>
 			<h1>{singleData.displayTitle}</h1>
