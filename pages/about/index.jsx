@@ -16,7 +16,6 @@ import Testimonial from '../../components/blocks/Testimonial';
 import CustomHead from '../../components/CustomHead';
 
 export default function About({ globalData, pageData }) {
-	console.log(pageData);
 	useGlobalUpdater(globalData);
 
 	const componentMapping = {

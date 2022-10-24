@@ -27,6 +27,8 @@ export default function Navbar() {
 	// 	}
 	// });
 
+	const hamburgerLine = `h-0.5 w-9 bg-black mb-3.5 transition ease transform duration-300`;
+
 	return (
 		<header className="sticky top-0 w-full z-50">
 			<nav className="z-50 absolute w-full">
@@ -41,26 +43,26 @@ export default function Navbar() {
 							/>
 						</a>
 					</Link>
-					<div
+					<button
 						onClick={handleTray}
 						className="cursor-pointer text-white absolute right-0 mr-11"
 					>
 						<div
-							className={`w-9 h-0.5 bg-black mb-3 origin-top-left transition duration-300 ${
-								open ? 'mb-[22px] rotate-45' : ''
+							className={`${hamburgerLine} ${
+								open ? 'rotate-45 translate-y-2' : ''
 							}`}
 						></div>
 						<div
-							className={`w-9 h-0.5 bg-black origin-bottom-left transition duration-300 ${
-								open ? '-rotate-45' : ''
+							className={`${hamburgerLine} ${
+								open ? '-rotate-45 -translate-y-2' : ''
 							}`}
 						></div>
-					</div>
+					</button>
 				</div>
 			</nav>
 			<div
 				onClick={handleTray}
-				className={`w-screen h-screen bg-main flex justify-center absolute top-0 z-40 overflow-hidden ${
+				className={`w-full h-screen bg-main flex justify-center absolute top-0 z-40 overflow-hidden ${
 					!open ? 'hidden' : ''
 				}`}
 			>
@@ -83,4 +85,20 @@ export default function Navbar() {
 			</div>
 		</header>
 	);
+}
+
+{
+	/* <button
+						onClick={handleTray}
+						className="cursor-pointer text-white absolute right-0 mr-11"
+					>
+						<div
+							className={`${genericHamburgerLine} ${
+								open ? 'mb-[22px] rotate-45' : ''
+							}`}
+						></div>
+						<div
+							className={`${genericHamburgerLine} ${open ? '-rotate-45' : ''}`}
+						></div>
+					</button> */
 }
