@@ -1,11 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-// State
-import { useGlobalStore } from '../../zustand-state/globalState';
-
-export default function Footer() {
-	const footerData = useGlobalStore((state) => state.footer);
+export default function Footer({ footerData }) {
 	return (
 		<footer className="bg-main text-white border-t-[20px] border-secondary">
 			<div className="max-w-screen-2xl m-auto lg:flex justify-between items-center px-11 py-12 lg:py-36 ">

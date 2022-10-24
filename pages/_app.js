@@ -3,6 +3,7 @@ import Layout from '../components/layout/Layout';
 import Head from 'next/head';
 
 function MyApp({ Component, pageProps }) {
+	const { globalData } = pageProps;
 	return (
 		<>
 			<Head>
@@ -14,7 +15,7 @@ function MyApp({ Component, pageProps }) {
 				<meta property="og:locale" content="en_GB" />
 				<meta property="og:url" content="" />
 			</Head>
-			<Layout>
+			<Layout globalData={globalData}>
 				<Component {...pageProps} />
 			</Layout>
 		</>

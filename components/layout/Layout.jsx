@@ -4,12 +4,12 @@ import Footer from './Footer';
 // Components
 import Navbar from './Navbar';
 
-export default function Layout({ children }) {
+export default function Layout({ children, globalData }) {
 	return (
 		<div>
-			<Navbar />
+			<Navbar navbarData={globalData.navBar} />
 			<main>{children}</main>
-			<Footer />
+			<Footer footerData={globalData.footer} />
 		</div>
 	);
 }

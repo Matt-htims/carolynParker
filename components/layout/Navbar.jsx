@@ -2,12 +2,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-// State
-import { useGlobalStore } from '../../zustand-state/globalState';
-
-export default function Navbar() {
-	const navbarData = useGlobalStore((state) => state.navbar);
-
+export default function Navbar({ navbarData }) {
 	const brand = navbarData.brand.data.attributes;
 
 	const [open, setOpen] = useState(false);
