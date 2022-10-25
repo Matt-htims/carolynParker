@@ -9,6 +9,10 @@ export default function PageIntro({ content }) {
 				objectFit="cover"
 				priority={true}
 			/>
+			<div
+				className="w-full h-full absolute bg-black/10"
+				aria-hidden="true"
+			></div>
 		</div>
 	);
 }

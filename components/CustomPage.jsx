@@ -25,6 +25,14 @@ export default function CustomPage({ pageData }) {
 			<main>
 				{dynamicComponents.map((componentName, n) => {
 					const Component = componentMapping[componentName];
+					if (n == 0 && componentName !== 'PageIntro') {
+						return (
+							<>
+								<div className="pt-[112px]"></div>
+								<Component key={n} content={pageData.blocks[n]} />
+							</>
+						);
+					}
 					return <Component key={n} content={pageData.blocks[n]} />;
 				})}
 			</main>
