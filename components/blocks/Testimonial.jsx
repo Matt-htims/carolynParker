@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function Testimonial({ content }) {
 	return (
 		<div className="max-w-screen-2xl m-auto px-11 relative">
