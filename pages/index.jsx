@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import { request } from '../lib/apollo';
 
 // Queries
@@ -6,36 +5,12 @@ import { GLOBAL_QUERY } from '../lib/queries/globalQueries';
 import { HOME_PAGE_QUERY } from '../lib/queries/pageQueries';
 
 // Components
-import Banner from '../components/blocks/Banner';
-import Padding from '../components/blocks/Padding';
-import PageIntro from '../components/blocks/PageIntro';
-import ProjectDisplay from '../components/blocks/ProjectDisplay';
-import Testimonial from '../components/blocks/Testimonial';
-
-import CustomHead from '../components/CustomHead';
+import CustomPage from '../components/CustomPage';
 
 export default function Home({ globalData, pageData }) {
-	const componentMapping = {
-		Banner,
-		Padding,
-		PageIntro,
-		ProjectDisplay,
-		Testimonial,
-	};
-
-	const dynamicComponents = pageData.blocks.map((block) => {
-		return block.__typename.replace('ComponentBlock', '');
-	});
-
 	return (
 		<div>
-			<CustomHead seo={pageData.seo} />
-			<main>
-				{dynamicComponents.map((componentName, n) => {
-					const Component = componentMapping[componentName];
-					return <Component key={n} content={pageData.blocks[n]} />;
-				})}
-			</main>
+			<CustomPage pageData={pageData} />
 		</div>
 	);
 }
