@@ -7,7 +7,7 @@ export default function PageIntro({ content }) {
 				content={content.image}
 				layout="fill"
 				objectFit="cover"
-				priority={true}
+				// priority={true}
 			/>
 			<div
 				className="w-full h-full absolute bg-black/10"

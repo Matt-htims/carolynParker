@@ -2,10 +2,8 @@ import ReactMarkdown from 'react-markdown';
 import CustomImage from '../CustomImage';
 
 export default function ProjectDisplay({ content }) {
-	if (
-		content.displayType == 'fullscreenImageTextLeft' ||
-		'fullscreenImageTextRight'
-	) {
+
+	if (content.displayType == 'fullscreenImageTextLeft' || content.displayType == 'fullscreenImageTextRight') {
 		return (
 			<div className="h-[1000px] relative">
 				<CustomImage
@@ -33,13 +31,13 @@ export default function ProjectDisplay({ content }) {
 				></div>
 			</div>
 		);
-	} else if (content.displayType == 'textFirst' || 'imageFirst') {
+	}
+	else if (content.displayType == 'textFirst' || content.displayType == 'imageFirst') {
 		return (
 			<div>
 				<p>hello</p>
 			</div>
-		);
-	}
+		);}
 	return (
 		<div className="max-w-screen-2xl m-auto px-11 space-y-12">
 			<div className="w-max space-y-3">
